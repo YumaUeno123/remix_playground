@@ -1,4 +1,4 @@
-import { Form, json, useLoaderData } from "@remix-run/react";
+import { Form, Link, json, useLoaderData } from "@remix-run/react";
 import type { FunctionComponent } from "react";
 
 import { getContact, type ContactRecord } from "../data";
@@ -50,9 +50,9 @@ export default function Contact() {
         {contact.notes ? <p>{contact.notes}</p> : null}
 
         <div>
-          <Form action="edit">
-            <button type="submit">Edit</button>
-          </Form>
+          <Link to={`/contacts/${contact.id}/edit`}>
+            <button>Edit</button>
+          </Link>
 
           <Form
             action="destroy"
